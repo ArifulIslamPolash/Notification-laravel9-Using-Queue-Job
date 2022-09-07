@@ -1,0 +1,16 @@
+laravel notifications:
+==========================
+email
+database
+sms
+slag
+
+custom notification (your project need)
+
+for realtime:
+============
+larvel pusher and echo
+
+Need knowledge:
+===============
+Queue and job
