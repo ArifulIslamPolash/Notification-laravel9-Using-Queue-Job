@@ -11,14 +11,12 @@ class EmailNotification extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
+   public $name = '';
+   public $email = '';
+    public function __construct($name, $email)
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -46,7 +44,10 @@ class EmailNotification extends Notification
                     //->action('Notification Action', url('/'))
                     //->line('Thank you for using our application!');
 
-         return (new MailMessage)->view('email');
+        $name = $this->name;
+        $email = $this->email;
+
+         return (new MailMessage)->view('email', compact('name', 'email'));
     }
 
     /**

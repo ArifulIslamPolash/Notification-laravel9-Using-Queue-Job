@@ -26,7 +26,7 @@ Route::get('/send-notification', function(){
     //Notification::send($user, new EmailNotification());
     $users = User::all();
     foreach($users as $user){
-        Notification::send($user, new EmailNotification());
+        Notification::send($user, new EmailNotification('Developer , Polash Mahmud','e.arifulislam1793@gmail.com'));
     }
 
 
