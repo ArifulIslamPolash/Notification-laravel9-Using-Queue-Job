@@ -21,9 +21,15 @@ Route::get('/', function () {
 });
 
 Route::get('/send-notification', function(){
-    $user= User::find(1);
-   // $user->notify(new EmailNotification());
-   Notification::send($user, new EmailNotification());
+    //$user= User::find(1);
+       // $user->notify(new EmailNotification());
+    //Notification::send($user, new EmailNotification());
+    $users = User::all();
+    foreach($users as $user){
+        Notification::send($user, new EmailNotification());
+    }
+
+
     return redirect()->back();
 });
 
